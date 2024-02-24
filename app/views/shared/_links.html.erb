@@ -1,0 +1,34 @@
+<div class="container" style="background-image: url('https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/w-qjCHPZbeXCQ-unsplash.jpg'); background-size: cover; background-position: center; padding: 50px; height: 100vh;">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <h1 class="text-center">Hr Mitra</h1>
+
+      <div class="text-center">
+        <%= link_to "About Us", about_path, target: '_blank', data: {name: 'about_page', resource: 'pages'}, class: 'btn btn-success btn-lg', style: 'margin-right: 10px;' %>
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <%= link_to "Contact Us", contact_path, target: '_blank', class: 'btn btn-secondary btn-lg', style: 'margin-right: 10px;' %>
+        <%= link_to "Privacy Policy", privacy_policy_path, target: '_blank', class: 'btn btn-secondary btn-lg', style: 'margin-right: 10px;' %>
+        <%= link_to "Terms and Conditions", terms_and_conditions_path, target: '_blank', class: 'btn btn-secondary btn-lg', style: 'margin-right: 10px;' %>
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <%= link_to "List of Employees", employees_path, class: "btn btn-primary btn-lg", style: 'margin-right: 10px;' %>
+        <%= link_to "List of Documents", documents_path, class: "btn btn-primary btn-lg", style: 'margin-right: 10px;' %>
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign_out', destroy_user_session_path, method: :delete, data: {confirm: "Your current session will be destroyed Are you sure to logout"}, class: "btn btn-danger btn-lg", style: 'margin-right: 10px;'  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

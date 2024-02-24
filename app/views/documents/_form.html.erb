@@ -1,0 +1,39 @@
+<!-- app/views/documents/_form.html.erb -->
+<%= form_for @document, html: { multipart: true } do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h4>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :doc_type, class: "form-label" %>
+    <%= f.text_field :doc_type, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :employee_id, class: "form-label" %>
+    <%= f.select :employee_id, options_for_select(Employee.all.map { |employee| [employee.name, employee.id] }), { prompt: 'Select an Employee' }, { class: 'form-select' } %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :file, class: "form-label" %>
+    <%= f.file_field :file, class: "form-control" %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit "Save", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Cancel", documents_path, class: "btn btn-secondary btn-lg ms-2" %>
+  </div>
+<% end %>

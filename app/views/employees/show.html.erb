@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Employee Details</h2>
+          <dl class="row">
+            <dt class="col-sm-3">Name:</dt>
+            <dd class="col-sm-9"><%= @employee.name %></dd>
+
+            <dt class="col-sm-3">Personal Email:</dt>
+            <dd class="col-sm-9"><%= @employee.personal_email %></dd>
+
+            <dt class="col-sm-3">Address:</dt>
+            <dd class="col-sm-9"><%= @employee.full_address %></dd>
+          </dl>
+
+          <h3 class="mb-3">Employee Documents:</h3>
+          <% if @employee.documents.present? %>
+          <% @employee.documents.each do |document| %>
+            <div class="card mb-4">
+              <div class="card-body">
+                <% if document.file.attached? %>
+                  <%= image_tag document.file.variant(resize_to_fit: [200, 200]) %>
+                <% end %>
+              </div>
+              <div class="card-body">
+                <%= document.name %>
+              </div>
+              <div class="card-body">
+                <%= document.doc_type %>
+              </div>
+            </div>
+          <% end %>
+          <% end %>
+
+          <div class="text-center">
+            <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-secondary rounded-0 me-2" %>
+            <%= link_to "Delete", employee_path(@employee), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm rounded-0" %>
+          </div>
+          <%= link_to 'Back to Employees', employees_path, class: "btn btn-primary btn-lg rounded-0 mt-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- app/views/documents/show.html.erb -->
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center"><%= @document.name %></h2>
+          <p class="card-text"><strong>Type:</strong> <%= @document.doc_type %></p>
+          <p class="card-text"><strong>Employee ID:</strong> <%= @document.employee_id %></p>
+          <% if @document.file.attached? %>
+            <%= image_tag @document.file.variant(resize_to_fit: [400, 400]) %>
+          <% end %>
+          <div class="text-center mt-3">
+            <%= link_to "Edit", edit_document_path(@document), class: "btn btn-primary" %>
+            <%= link_to "Back to Documents", documents_path, class: "btn btn-secondary ms-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Edit Employee</h2>
+          <%= form_with(model: @employee, html: { class: "row g-3" }) do |form| %>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <%= form.text_field :first_name, class: "form-control rounded-0", id: "first_name", placeholder: " " %>
+                <%= form.label :first_name, "First Name", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:first_name].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:first_name).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <%= form.text_field :last_name, class: "form-control rounded-0", id: "last_name", placeholder: " " %>
+                <%= form.label :last_name, "Last Name", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:last_name].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:last_name).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating">
+                <%= form.email_field :personal_email, class: "form-control rounded-0", id: "personal_email", placeholder: " " %>
+                <%= form.label :personal_email, "Personal Email", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:personal_email].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:personal_email).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <%= form.text_field :address_line_1, class: "form-control rounded-0", id: "address_line_1", placeholder: " " %>
+                <%= form.label :address_line_1, "Address Line 1", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:address_line_1].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:address_line_1).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <%= form.text_field :address_line_2, class: "form-control rounded-0", id: "address_line_2", placeholder: " " %>
+                <%= form.label :address_line_2, "Address Line 2", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:address_line_2].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:address_line_2).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <%= form.text_field :city, class: "form-control rounded-0", id: "city", placeholder: " " %>
+                <%= form.label :city, "City", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:city].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:city).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <%= form.text_field :state, class: "form-control rounded-0", id: "state", placeholder: " " %>
+                <%= form.label :state, "State", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:state].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:state).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating">
+                <%= form.text_field :country, class: "form-control rounded-0", id: "country", placeholder: " " %>
+                <%= form.label :country, "Country", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:country].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:country).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <div class="form-floating">
+                <%= form.text_field :pincode, class: "form-control rounded-0", id: "pincode", placeholder: " " %>
+                <%= form.label :pincode, "Pincode", class: "form-label" %>
+              </div>
+              <% if @employee.errors[:pincode].any? %>
+                <div class="text-danger"><%= @employee.errors.full_messages_for(:pincode).join(', ') %></div>
+              <% end %>
+            </div>
+            <div class="col-12 mt-4">
+              <%= form.submit "Submit", class: "btn btn-primary rounded-0" %>
+              <%= link_to 'Cancel', employees_path, class: "btn btn-secondary rounded-0 ms-2" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
